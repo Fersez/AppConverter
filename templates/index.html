@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div>
+    <h1> Introduzca el archivo excel respetando los requisitos:</h1>
+    <ul>
+        <li> Las cabeceras del archivo Excel deben estar previamente definidas, y establecido de manera correcta los
+            valores de los atributos y características </li>
+        <li>
+            El usuario debe saber cuáles de los campos que no son comunes son atributos y cuáles características, y
+            también su unidad de medida
+        </li>
+        <li>
+            Los campos comunes deben seguir el mismo orden para todos los proveedores y ser iguales, por lo tanto
+            acabarán en la misma columna
+        </li>
+        <li>
+            Los campo correspondientes a atributos y características deben ser iguales para aquellos atributos o
+            características que sean iguales, es decir, no vale poner el campo 'color' en roca, 'Color' en junkers
+            y 'colores' en riuvert.
+        </li>
+        <li>
+            Los campos correspondientes a valroes de atributos deben ser iguales cuando estos valores sean iguales,
+            no vale referirse al mismo valro poniendo '100x200' en un archivo y '200x100' en otro, pues serían
+            valores distintos.
+        </li>
+        <li>
+            Los datos deben estar en la primera hoja del excel
+        </li>
+    </ul>
+
+
+</div>
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div align="center">
+        Archivo:
+        <input type="file" name="excel" required>
+        <br>
+        <input style="margin-top:5%" type="submit">
+        {% ifequal error 1%}
+        <br>
+        <font color="#FF0000">
+            Tipo de archivo no válido
+        </font>
+        {% endifequal %}
+    </div>
+</form>
+
+
+</body>
+</html>

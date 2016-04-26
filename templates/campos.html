@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+    <div style="float:left; width:40%">
+       <strong>Escoja los campos comunes(Ctrl+Click) para escojer varios</strong>
+        <br>
+        <select id="comunes" name="comunes" size="16" multiple style="margin-top:1%">
+            {% for head in headers %}
+                <option value="{{head}}"> {{head}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div style="float:right; width:40%">
+        <strong>Escoja los campos correspondientes a atributos(Ctrl+Click)</strong>
+        <br>
+        <select id="atributos" name="atributos" size="12" multiple style="margin-top:1%">
+            {% for head in headers %}
+                <option value="{{head}}"> {{head}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <strong>Escoja la id del último atributo introducido en PRESTASHOP (0 si no hay atributos en prestashop)</strong>
+        <input id="id_atributo" name="atributo" type="number" value="0" min="0">
+
+        <br>
+        <br>
+        <br>
+        <strong>Escoja los campos correspondientes a características(Ctrl+Click)</strong>
+        <br>
+        <select id="caracteristicas" name="caracteristicas" size="12" multiple style="margin-top:1%">
+            {% for head in headers %}
+                <option value="{{head}}"> {{head}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <strong>Escoja la id de la última característica introducida en PRESTASHOP (0 si no hay atributos en prestashop)</strong>
+        <input id="id_caracteristica" name="caracteristica" type="number" value="0" min="0">
+    </div>
+
+    <input type="submit">
+
+</form>
+
+</body>
+
+</html>
